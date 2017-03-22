@@ -1,0 +1,1 @@
+matlab -r "cd('C:\Users\Ja\Documents\praca_magisterska\ip_core_spectral_analysis\matlab')"
