@@ -1,4 +1,4 @@
-function [y, state] = goertzel_double(x, k)
+function [y, output] = goertzel_double(x, k)
 
     N = length(x);
 

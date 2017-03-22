@@ -1,4 +1,4 @@
-function [y, state] = goertzel_fixed(x, k, NT)
+function [y, output] = goertzel_fixed(x, k, NT)
 
     NTC = numerictype;
     NTC.Signedness = 'Signed';
