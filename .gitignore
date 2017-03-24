@@ -1,2 +1,4 @@
+matlab/start_matlab.bat
 matlab/data/
 matlab/output/
+*.asv
