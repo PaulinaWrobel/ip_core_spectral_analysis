@@ -1,5 +1,7 @@
+matlab/start_matlab.bat
 matlab/data/
 matlab/output/
+matlab/*.asv
 ise/ip_core_spectral_analysis/_xmsgs/
 ise/ip_core_spectral_analysis/ipcore_dir/
 ise/ip_core_spectral_analysis/xst/
@@ -13,3 +15,4 @@ ise/ip_core_spectral_analysis/top.ngc
 ise/ip_core_spectral_analysis/top.ngr
 ise/ip_core_spectral_analysis/webtalk_pn.xml
 ise/ip_core_spectral_analysis/top_xst.*
+
