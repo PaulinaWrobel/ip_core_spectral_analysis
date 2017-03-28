@@ -1,5 +1,5 @@
 SF = 20e6;
-N = 1e3;
+N = 1e8;
 k = 600;
 integer = 32;
 fraction = 16;

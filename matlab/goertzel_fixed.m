@@ -1,4 +1,4 @@
-function [y, output] = goertzel_fixed(x, k, NT)
+function [y, state] = goertzel_fixed(x, k, NT)
 
     NTC = numerictype;
     NTC.Signedness = 'Signed';
@@ -17,15 +17,14 @@ function [y, output] = goertzel_fixed(x, k, NT)
     state = complex(fi(zeros(N,1),NT));
     state_prev = complex(fi(0,NT));
     state_prev2 = complex(fi(0,NT));
-    output = complex(fi(zeros(N,1),NT));
 
     for m = 1:N
       state(m) = x(m) + B*state_prev - state_prev2;
       state_prev2 = state_prev;
       state_prev = state(m);
-      output(m) = B*state_prev - state_prev2 - C*state_prev;
     end
     
-    y = abs(output(N));
+    output = B*state_prev - state_prev2 - C*state_prev;
+    y = abs(output);
     
 end
