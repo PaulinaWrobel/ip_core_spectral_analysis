@@ -20,6 +20,16 @@ architecture Behavioral of sdft is
     signal state : sfixed(DEC-1 downto -FRAC) := (others => '0');
 begin
 
-    state <= to_sfixed(data, state);
+    calc: process (clk)
+    begin
+        if (clk'event and clk = '1') then
+            if (reset = '1') then
+                state <= (others => '0');
+            else
+                state <= resize(state + to_sfixed(data, state),state);
+            end if;
+        end if;
+    end process calc;
+
 end Behavioral;
 
