@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 library ieee_proposed;
 use ieee_proposed.fixed_pkg.all;
 
-entity sdft is
+entity goertzel is
     generic (
         DATA_WIDTH : integer := 24;
         COEFF_LENGTH : integer := 32;
@@ -19,20 +19,21 @@ entity sdft is
         dft_real : out std_logic_vector(STATE_INTEGER-1 downto 0);
         dft_imag : out std_logic_vector(STATE_INTEGER-1 downto 0)
     );
-end sdft;
+end goertzel;
 
-architecture behav of sdft is
+architecture behav of goertzel is
     signal coeff_real_temp: std_logic_vector(COEFF_LENGTH-1 downto 0);
     signal coeff_imag_temp: std_logic_vector(COEFF_LENGTH-1 downto 0);
     signal coeff_real: sfixed(1 downto -COEFF_LENGTH+2) := (others => '0');
     signal coeff_imag: sfixed(1 downto -COEFF_LENGTH+2) := (others => '0');
+    signal coeff_cos: sfixed(2 downto -COEFF_LENGTH+3) := (others => '0');
     
     signal state_real: sfixed(STATE_INTEGER-1 downto -STATE_FRACTION) := (others => '0');
     signal state_imag: sfixed(STATE_INTEGER-1 downto -STATE_FRACTION) := (others => '0');
     signal data: sfixed(STATE_INTEGER-1 downto -STATE_FRACTION) := (others => '0');
 
 begin
-    
+
     data <= resize(to_sfixed(data_in,DATA_WIDTH,0),data);
     
     coeff_process: process (clk)
@@ -54,7 +55,6 @@ begin
     
     dft_real <= to_slv(resize(state_real,STATE_INTEGER-1,0));
     dft_imag <= to_slv(resize(state_imag,STATE_INTEGER-1,0));
-    
 
 end behav;
 

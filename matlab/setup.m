@@ -1,6 +1,10 @@
+FILENAME = '../../data/fin_6_CH1.dat';
+%%
 SF = 20e6;
-N = 1e8;
-k = 600;
+N = 10e6;
+% N = 100;
+k = N/4;
+W = 10;
 integer = 32;
 fraction = 16;
 
